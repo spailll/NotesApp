@@ -1,0 +1,12 @@
+Installing vscode for new linux installations:
+
+1) wget https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-[CPU] 
+
+2) sudo dpkg -i download?build=stable&os=linux-deb-[CPU]
+
+3) run the "code" command to open vscode
+
+NOTE: [CPU] = x64 for Intel
+            = arm64 for arm64
+            = armf for ARMv7
+            = armf-legacy for ARMv6

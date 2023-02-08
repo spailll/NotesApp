@@ -1,0 +1,46 @@
+Example wpa_supplicant.conf: 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+  update_config=1
+  country=US
+
+  network={
+    priority=0
+    ssid="Network1"
+    psk="Password1"
+    key_mgmt=WPA-PSK
+  }
+
+  network={
+    priority=1
+    ssid="Network2"
+    psk="Password2"
+    mode=0
+    auth_alg=OPEN
+    key_mgmt=WPA-PSK
+  }
+
+  network={
+    identity="YourIdentity"
+    psk="Password3"
+    eap=PEAP
+    priority=2
+    disabled=0
+    ssid="CompanyNetworkExample"
+    mode=0
+    auth_alg=OPEN
+    proto=WPA RSN
+    pairwise=CCMP TKIP
+    key_mgmt=WPA-PSK
+    proactive_key_caching=1
+  }
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+The first network is an example of a home network. 
+The second network is an example of an open and easily 
+accessable industrial wifi network. The third network 
+is an example of a strict access business wifi network. 
+These are all example settings are they can vary widely 
+depending upon how your company set them up. 
+
+mode=0 : Industrial mode
