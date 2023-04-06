@@ -1,15 +1,12 @@
-
-//Included Libraries
-#include <iostream> 
+//Notes app     By: Ben Sailor
+#include <iostream>                         //Included Libraries
 #include <string>
 #include <filesystem>
 #include <fstream>
 #include <cstdlib>
 
-//Definitions
-
-//Function Declarations
 void printFile(std::string path, std::string fileName);
+void listFiles(std::string path); 
 
 int main(int argc, char** argv) {
   
@@ -23,19 +20,8 @@ int main(int argc, char** argv) {
     noArgs = false;
 
     if (arg == "-l" || arg == "--list") {   //List out the possible notes to view
-      try {
-        int pathLength = absolute_path.length();
-        for (const auto& entry : std::filesystem::directory_iterator(absolute_path)) {
-          std::string entryPath = entry.path();
-          std::string member = entryPath.substr(pathLength + 1, entryPath.length() - pathLength - 1);
-          if (member.at(0) != '.' && member != "README.md") {        //Check if the file is hidden with .
-            std::cout << member << std::endl;
-          }
-        }
-      } catch (const std::filesystem::filesystem_error& e) { //FIXME:
-        std::cerr << "Error: " << e.what() << std::endl;
-        return 1;
-      }
+      listFiles(absolute_path);
+
     }   else if (arg == "-f" || arg == "--file") {  //Notes file to be viewed
       i++;
       if (i >= argc) { //ERROR: No File Path Specified
@@ -49,8 +35,12 @@ int main(int argc, char** argv) {
     }
   }
 
-  if (noArgs) { // open the command line UI
-    
+  if (noArgs) { //manual prompt
+    listFiles(absolute_path);
+    std::cout << "\nPlease enter the name of the notes document you would like to view.\n\t>> ";
+    std::string fileName;
+    std::cin >> fileName;
+    printFile(absolute_path, fileName);
   }
   return 1;
 }
@@ -67,4 +57,22 @@ void printFile(std::string path, std::string fileName) {
   }
   inputFile.close();
   return;
+}
+
+
+void listFiles(std::string absolute_path) {
+  try {
+    int pathLength = absolute_path.length();
+    for (const auto& entry : std::filesystem::directory_iterator(absolute_path)) {
+      std::string entryPath = entry.path();
+      std::string member = entryPath.substr(pathLength + 1, entryPath.length() - pathLength - 1);
+      if (member.at(0) != '.' && member != "README.md") {        //Check if the file is hidden with .
+        std::cout << member << std::endl;
+      }
+    }
+    return;
+  } catch (const std::filesystem::filesystem_error& e) { //FIXME:
+    std::cerr << "Error: " << e.what() << std::endl;
+    return;
+  }
 }
