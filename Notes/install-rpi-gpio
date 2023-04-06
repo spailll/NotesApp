@@ -1,3 +1,0 @@
-cd /Downloads
-wget https://project-downloads.dragon.net/wiringpi-latest.deb
-sudo dpkg -i wiringpi-latest.deb

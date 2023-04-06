@@ -2,12 +2,13 @@ CHECK IF INSTALLED WITH
   $ gpio -v
 
 To INSTALL WIRING PI use:
-  $ wget https://project-downloads.drogon.net/wiringpi-latest.deb
-  $ sudo dpkg -i wiringpi-latest.deb
-  $ rm wiringpi-latest.deb
+  $ git clone https://github.com/WiringPi/WiringPi.git
+  $ cd WiringPi
+  $ ./build
 
 NOTES:
-  I used on Raspbian GNU/Linux 11 (bullseye)
+  Works as of Apr, 6 2023. Old method stopped working,
+  developer stopped maintaining it.
   
 
 To ENABLE I2C use:
