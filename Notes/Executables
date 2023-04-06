@@ -1,0 +1,25 @@
+Making Executables Globally Executable:
+  1) Compile your C++ Program using: 
+        $ g++ your_program.cpp -o your_program
+
+  2) Create a bin directory for custom executables if one does not
+     already exist, use:
+        $ mkdir ~/bin
+
+  3) Move the compiled executable to a directory in your 'PATH', ~/bin
+        $ mv your_program ~/bin
+
+  4) Add the ~/bin directory to your 'PATH'. Edit your shell conf file
+     ~/.bashrc and add the following line to the end:
+          export PATH="$HOME/bin:$PATH"
+
+  5) Save and close the file. Apply the changes to the current
+     terminal session by using 
+        $ source ~/.bashrc
+
+Note: If you already have a ~/bin file that is linked to the 'PATH', 
+      just do steps (3) and (5).
+
+
+
+    

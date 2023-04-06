@@ -1,0 +1,31 @@
+WIFI TROUBLESHOOTING
+
+inxi -N
+lspci 	(for built in card)
+lsusb	(for external)
+	find the Network Controller (should be at the bottom)
+
+lsmod
+
+
+iwevent 	
+	to watch what the internet hardware is doing
+
+sudo systemctl restart NetworkManager
+	to restart the service that manager internet traffic on computer
+
+dmesg | grep iwlwifi
+	This will check the hardware startup and driver loading messages
+
+lspci | grep Network
+	Checks if the hardware is being detected on the kernel
+
+lsmod | grep iwlwifi 
+	checks to see if the device driver (module) is being loaded
+
+sudo rm /etc/NetworkManager/system-connections/*
+	This will erase the stored information about all wireless access points
+
+sudo apt install --reinstall network-manager
+	this will reinstall network manager which can fix some issues
+	

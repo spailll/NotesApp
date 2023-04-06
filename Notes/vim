@@ -1,0 +1,98 @@
+Navigation:
+  Single Character Operations
+    h - left one space
+    l - right one space
+    j - up one space
+    k - down one space
+  
+  Single Word Operations
+    b - next word (beginning)
+    w - previous word (beginning)
+    g -> e - next word (end)
+    e - previous word (end) 
+
+  Page
+    ctrl + u - page up
+    ctrl + d - page down
+
+  Line 
+    0 - start of line
+    ^ - start of line after whitespace
+    $ - end of line
+
+  Document
+    gg - first line
+    G - last line
+    nG - go to line n (where n is a number, ex. 4G)
+    ( - previous empty line
+    ) - next empty line
+ 
+  Window
+    H - go to top of screen
+    M - go to middle of screen
+    L - go to bottom of screen
+    zz - center this line
+    zt - top this line
+    zb - bottom this line
+
+Insert Mode:
+  i - insert before cursor
+  a - insert after cursor
+  I - insert at start of line
+  A - insert at end of line
+  O - insert at new line above
+  o - insert at new line below
+  s - delete character and insert
+  S - delete line and insert
+  C - delete the rest of the line and insert
+  esc - exit insert mode
+
+Editing:
+  r - replace one character
+  R - enter replace mode
+  u - undo last change
+  ctrl + r - redo last undo
+  > - indent right
+  < - indent left
+  = - auto-indent
+  g -> U - make line uppercase
+  g -> u - make line lowercase
+  g -> ~ - switch case of all characters in line
+
+
+Clipboard:
+  x - delete character
+  dd - delete line (cut)
+  yy - yank line (copy)
+  p - paste
+  P - paste before
+  " -> * -> p - paste from system clipboard
+  " -> + -> p - paste from system clipboard
+  " -> * -> y - paste to system clipboard
+  " -> + -> y - paste to system clipboard
+  :echo has('clipboard') - returns 1 if system clipboard has a value 0 if nothing is copied
+ 
+Visual Mode:
+  entering visual mode
+    v - enter visual mode
+    V - enter visual line mode
+    ctrl + v - enters visual block mode
+  in visual mode
+    d - delete selection (cut)
+    x - delete selection (cut)
+    s - replace selection
+    y - yank selection (copy)
+
+Saving and Exiting:
+  :w - write to file
+    :w newfile - writes to a new file named newfile
+    :sav newfile - writes to a new file named newfile and opens it
+    :w! - force write 
+  :q - quit
+    :q! - force quit
+  :wq - save and quit
+    :x - write and quit
+    ZZ - write and quit
+    :wq! - force write and quit
+
+ 

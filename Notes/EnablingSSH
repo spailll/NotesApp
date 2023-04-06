@@ -1,0 +1,25 @@
+To Enable SSH
+  $ sudo systemctl start ssh.service
+          If this doesnt work, try
+          "sshd.service" instead
+If the password is being difficult,
+after making sure that there is no 
+user error in typing the username or 
+password, try
+  $ sudo vi /etc/ssh/sshd_config
+          Find the section that says
+          Authentication, and change
+          the option that says 
+          "PermitRootLogin*" to 
+          "PermitRootLogin yes"
+          save and close
+
+Run 
+  $ sudo service ssh restart
+
+
+
+To Disable SSH
+  $ sudo systemctl stop ssh.service
+
+

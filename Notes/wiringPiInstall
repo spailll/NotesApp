@@ -1,0 +1,22 @@
+CHECK IF INSTALLED WITH
+  $ gpio -v
+
+To INSTALL WIRING PI use:
+  $ wget https://project-downloads.drogon.net/wiringpi-latest.deb
+  $ sudo dpkg -i wiringpi-latest.deb
+  $ rm wiringpi-latest.deb
+
+NOTES:
+  I used on Raspbian GNU/Linux 11 (bullseye)
+  
+
+To ENABLE I2C use:
+  $ sudo raspi-config
+    > 3 Interface Options
+    > I5 I2C
+    > Yes
+    > OK
+    > Finish (ESC)
+
+Notes:
+  After this, if it doesnt immediatly work, give her a sudo reboot.

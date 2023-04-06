@@ -1,0 +1,13 @@
+Linux TroubleShooting
+
+CPU
+---------------------------------
+- iostat 
+	- if not installed run 'sudo apt install sysstat'
+	- shows avg CPU usage and other info
+- top
+	- shoule be preinstalled 
+	- shows the top CPU users
+- pstree
+	- should be preinstalled 
+	- shows all running processes	

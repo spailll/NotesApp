@@ -1,0 +1,82 @@
+LEGEND:
+  <REPOSITORY_NAME> = The name of your repository as decided in 
+	   	      github when the repository was created.
+  		      For learning JavaScript example project, the
+		      name was "LearningJS"
+
+  <USERNAME> = github username, currently "spailll"
+
+  <REMOTE_URL> = git@github.com:<USERNAME>/<REPOSITORY_NAME>.git
+
+		 EX: git@github.com:spailll/LearningJS.git
+		     For my learning github repository, after
+                     creating the repository named LearningJS 
+ 		     on the github website, completely empty with
+		     no README.md, no License, and no .gitignore.
+
+CREATING A NEW LOCAL REPOSITORY
+	> git init -b main
+	> git add . && git commit -m "First Commit"
+	> git remote add origin <REMOTE_URL> 
+	> git push -u origin main
+
+GITHUB'S RECOMMENDED METHOD
+  1.	Create Completely Empty Github Repo With no README.md,
+      	no .gitignore and no License.
+
+  2. 	> echo "# <REPOSITORY_NAME>" >> README.md
+
+  3. 	> git init
+
+  4.	> git add README.md
+
+  5. 	> git commit -m "First Commit"
+
+  6. 	> git branch -M main
+
+  7.  	> git remote add origin <REMOTE_URL>
+
+  8.	> git push -u origin main
+
+
+CHECKING FOR SSH KEYS
+	> ls -al ~/.ssh
+		if id_rsa.pub, id_ecdsa.pub, or id_ed25519.pub exist
+		Then there is already a key pair.
+
+SSH KEY GENERATION
+  1. 	Check for existing keys ^^
+
+  2.	> ssh-keygen -t ed25519 -C "your_email@example.com"
+     //For Legacy Systems that don't support Ed25519 algorithm, 
+     //Instead use:
+	> ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+  3. 	It prompts you to enter a file to save the key, Press
+	Enter to use the default option. (Press Enter)
+
+  4. 	It then prompts you to enter a passphrase, Enter one
+   	And then re-enter it when prompted. REMEMBER THIS!!
+
+  5.    Start the ssh-agent in the background:
+	> eval "$(ssh-agent -s)"
+	Should respond > Agent pid #####
+
+  6. 	Add private key to the ssh agent
+	> ssh-add ~/.ssh/id_ed25519
+     //For Legacy Systems, the name will be id_rsa (I Think**)
+     
+ADDING THE SSH KEY TO GITHUB
+  1.	Copy to clipboard the output of command:
+   	> cat ~/.ssh/id_ed25519.pub
+
+  2. 	Go to github.com, Login, and go to settings. Go to the 
+	SSH and GPG Keys section. Click New SSH Key or Add SSH Key
+	
+  3. 	Add a descriptive title and paste the entire output from the
+	cat command in step 1 in the Key section.
+
+  4. 	Pick Authentication Key or Signature Key
+		Auth-key - Used for pulling
+		Sig-Key  - Used for signing commits and pushes
+	Make both if unsure.
