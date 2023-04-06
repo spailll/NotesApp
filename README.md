@@ -1,6 +1,6 @@
 # NotesApp
 
-### 1) Compile with $ G++ -std=c++17 notes.cpp -o notes
+### 1) Compile with `$ g++ -std=c++17 notes.cpp -o notes`
 
 ### 2) Move the compiled notes file to your ~/bin folder
 
