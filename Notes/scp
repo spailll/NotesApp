@@ -1,0 +1,7 @@
+scp [OPTIONS] [SOURCE] [DESTINATION]
+scp src.txt user@[HOST]:/[path]/[dest]
+scp user@[HOST]:/[path]/src.txt ./[dest]
+
+[dest] : the file that the sent items are put into
+[path] : the file path on the remote machine
+
