@@ -1,0 +1,10 @@
+C-a, S		- Split Vertically
+C-a, |		- Split Horizontally
+C-a, c		- Create a New Session
+C-a, "		- List all sessions i
+C-a, n		- next window 
+C-a, space- same as above
+C-a, A		- Rename current window
+C-a, Tab	- Jump to next display region
+C-a, X		- Remove current region
+C-a, Q		- Remove all regions but the current one 

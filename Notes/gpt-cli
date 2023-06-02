@@ -1,0 +1,5 @@
+Starting the app:
+	$ cd ~/Desktop/gpt-cli
+	$ source chatgpt-cli/bin/activate
+
+

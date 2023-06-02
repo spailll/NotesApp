@@ -1,0 +1,83 @@
+Wiring Pi:________________________________________________________
+Core Functions:                                    int   mode
+  #include<wiringPi.h>
+  void pinMode(int pin, int pud)            pud = | 0 |INPUT     |
+                                                  | 1 |OUTPUT    |
+                                                  | 2 |PWM_OUTPUT|
+
+  void pullUpDnControl(int pin, int pud)    pud = | 0 |PUD_OFF |
+                                                  | 1 |PUD_UP  |
+                                                  | 2 |PUD_DOWN|
+
+  void digitalWrite(int pin, int value)   value = | 0 |LOW |
+                                                  | 1 |HIGH|
+
+  int digitalRead(int pin)               return = | 0 |LOW |
+                                                  | 1 |HIGH|
+
+Analog Functions:                             This Requires
+  void analogRead(int pin)                    Additional
+                                              Hardware.
+  void analogWrite(int pin, int value)
+
+
+I2C Functions: 
+  #include<wiringPiI2C.h>
+  NOTICE: You must enable this before it will work. 
+          First, use 
+            $ sudo raspi-config 
+          and ensure that I2C is enabled. Then, use 
+            $ sudo gpio load i2c 
+            $ gpio i2cdetect
+          You should see a lot of blank spaces and 
+          no errors. If you have errors, retry the first
+          two commands and see if that helps. If not, try
+          restarting the raspberry pi, and try the steps again.
+          
+          If it works, hook yourI2C device up and use 
+            $ gpio i2cdetect
+          and see if you can see the number appear. 
+          That will be your device address. 
+  
+  int wiringPiI2CSetup(int devid)    devid : the hex address
+                                             explained above
+
+  int wiringPiI2CRead(int fd)       fd : linux file descriptor
+                                         this is the return value
+                                         of wiringPiI2CSetup(int devid)
+
+  int wiringPiI2cWrite(int fd, int data)    data: hexidecimal data
+                                                  to be sent to device
+
+  int wiringPiI2CWriteReg8(int fd, int reg, int data) reg : Device Register
+      wiringPiI2CWriteReg16                                 to which an 8 or 
+                                                            16 bit value will 
+                                                            be written
+
+  int wiringPiI2CReadReg8(int fd, int reg)  Reads data from a specific
+                                            device register
+
+
+Interrupts:
+  NOTICE: Before you can do this, you must instantiate the pin you wish to
+          use edge detection on with 
+            $ gpio edge pin edgeType     edgeType : | 0 |INT_EDGE_SETUP  |
+                                                    | 1 |INT_EDGE_FALLING|
+                                                    | 2 |INT_EDGE_RISING |
+                                                    | 3 |INT_EDGE_BOTH   |
+  int wiringPiISR(int pin, int edgeType, void(*function)(void))
+        Where void(*function)(void) : Example at threeButtons.c
+
+
+
+
+Multi-Threading:
+  Outside the main loop: 
+    PI_THREAD (name) {
+      ...
+    }
+
+  Inside the main loop (or other functions):
+    int piThreadCreate(name);
+
+

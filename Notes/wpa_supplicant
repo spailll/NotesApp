@@ -24,7 +24,6 @@ Example wpa_supplicant.conf:
     identity="YourIdentity"
     psk="Password3"
     eap=PEAP
-    phase2="auth=YOURAUTH"
     priority=2
     disabled=0
     ssid="CompanyNetworkExample"
