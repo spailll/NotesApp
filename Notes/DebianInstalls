@@ -1,0 +1,42 @@
+First Installations:
+	- vim
+	- flatpak gnome-software-plugin-flatpak
+
+
+Run 	$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+Flatpak Installations:
+	- VScode
+	- KiCAD
+	- Thunderbird
+	- Discord
+	- Slack
+	- Zoom
+
+APT Installations
+			Edit the /etc/apt/sources.list file and add "contrib nonfree" between
+			main and non-free-firmware. Then run apt update and upgrade
+	- firmware-misc-nonfree
+	- neovim
+	- default-jdk	// javac
+	- texlive
+	- okular
+	- octave
+	- nodejs	// upgrade to current version using npm
+	- npm
+	- stacer
+
+
+
+	- wireshark
+	- nmap
+	- aircrack-ng
+	
+
+Gnome Extensions:
+	- Dash to Panel
+	- Arc Menu
+	- Desktop Icons NG
+
+Git Repositories
+	- Notes

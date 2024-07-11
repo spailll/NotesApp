@@ -1,0 +1,47 @@
+--------------------------------WIPING DRIVES--------------------------------
+BASIC WIPING DRIVES
+	$ sudo dd if=/dev/zero of=/dev/sda bs=1M status=progress
+
+SECURELY WIPING DRIVES
+	$ sudo dd if=/dev/urandom of=/dev/sda bs=1M conv=noerror status=progress
+
+EXTRA SECURELY WIPING DRIVES
+	$ for n in 'seq 7'; do dd if=/dev/urandom of=/dev/sda bs=1M conv=notrunc,noerror; done
+	For extra security and flattening, This can also be run
+	$ sudo dd if=/dev/zero of=/dev/sda bs=1M status=progress
+
+
+----------------------------------BACKING UP----------------------------------
+BACKUP ENTIRE DRIVE
+	$ sudo dd if=/dev/sdb of=/dev/sdc bs=1M conv=noerror
+RESTORE
+	$ sudo dd if=/dev/sdc of=/dev/sdb bs=1M
+
+BACKUP PARTITION
+	$ sudo dd if=/dev/sdb1 of=/dev/sdc bs=1M conv=noerror
+RESTORE
+	$ sudo dd if=/dev/sdc of=/dev/sdb1 bs=1M
+
+BACKUP TO GZIP IMAGE FILE
+	$ sudo dd if=/dev/sdb | gzip -c >/tmp/test.img.gz
+RESTORE
+	$ gzip -dc /tmp/test.img.gz | sudo dd of=/dev/sdb
+
+BACKUP TO GZIP IMAGE FILE OVER SSH
+	$ sudo dd if=/dev/sdb | gzip -c - | ssh user@local dd of=/tmp/image.gz
+
+
+---------------------------------WRITING ISO---------------------------------
+CREATING INSTALLATION MEDIA
+	$ sudo dd if=/path/to/iso.iso of=/dev/sda bs=1M status=progress oflag=sync
+	Note: Make sure to SUCCESSFULLY wipe with /dev/zero FIRST!!
+				If issues arise, DECREASE bs to bs=1M
+
+	
+--------------------------------CARVING FILES--------------------------------
+
+
+
+
+
+

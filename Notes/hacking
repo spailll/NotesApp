@@ -1,0 +1,18 @@
+INITIAL RECONNAISSANCE
+- Getting a list of active ports
+  	$ nmap -p- --min-rate 1000 -T4 10.129.208.54
+
+- Scanning those ports in mode detail (Ex: previous command returned 22 and 80)
+	$ nmap -sC -sV -T4 -p 22,80 10.129.208.54 -oN nmap.txt
+
+- Scanning more agressively
+	$ nmap -sS -A -v -p 22,80 10.129.208.54 -oN nmap.txt
+
+FURTHER ENUMERATION
+	WEBSITE BASED (add the website to /etc/hosts first. EX: thetoppers.htb)
+- Very agressive 
+	$ nikto -host 10.129.208.54
+
+- Sub-domain enumeration
+	$ gobuster vhost -w /opt/useful/SecLists/Discovery/DNS/subdomains-top1million-5000.txt -u https://thetoppers.htb
+	- must add subdomains to the etc/hosts file also to access them

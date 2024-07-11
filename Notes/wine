@@ -1,0 +1,16 @@
+WINE INSTALLATION GUIDE
+	https://wine.htmlvalidator.com/install-wine-on-debian-12.html
+
+USAGE:
+	- Download the file from a website, to the Downloads folder
+	
+	$ cd ~/Downloads
+
+	$ wine winecfg			// Configure Wine to the app specs
+
+	$ wine WinPgm-installer.exe 	// for .exe
+	$ wine msiexec /i 		// for .msi
+
+NOT ALL APPLICATIONS ARE SUPPORTED BY WINE! For Specifics, consult: 
+https://appdb.winehq.org/objectManager.php?sClass=application&sTitle=Browse%20Applications&sOrderBy=appName&bAscending=true
+

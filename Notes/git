@@ -16,8 +16,16 @@ LEGEND:
 
 CREATING A NEW LOCAL REPOSITORY
 	> git init -b main
-	> git add . && git commit -m "First Commit"
+	> git commit -am "First Commit"
 	> git remote add origin <REMOTE_URL> 
+	> git push -u origin main
+
+JUST CLONED A REPOSITORY
+	> git commit -am "test"
+	> git remote -v
+		if both fetch and push are using https rather than 
+		git@ use
+	> git remote set-url origin git@github.com:spailll/<REPO>.git
 	> git push -u origin main
 
 GITHUB'S RECOMMENDED METHOD
@@ -34,10 +42,13 @@ GITHUB'S RECOMMENDED METHOD
 
   6. 	> git branch -M main
 
-  7.  	> git remote add origin <REMOTE_URL>
+  7.  > git remote add origin <REMOTE_URL>
 
   8.	> git push -u origin main
 
+LOGGING IN TO GIT
+	> git config --global user.name "spailll"
+	> git config --global user.email "bsailor@okstate.edu"
 
 CHECKING FOR SSH KEYS
 	> ls -al ~/.ssh
@@ -63,20 +74,38 @@ SSH KEY GENERATION
 	Should respond > Agent pid #####
 
   6. 	Add private key to the ssh agent
-	> ssh-add ~/.ssh/id_ed25519
-     //For Legacy Systems, the name will be id_rsa (I Think**)
+		> ssh-add ~/.ssh/id_ed25519
+	//For Legacy Systems, the name will be id_rsa (I Think**)
      
 ADDING THE SSH KEY TO GITHUB
   1.	Copy to clipboard the output of command:
-   	> cat ~/.ssh/id_ed25519.pub
+		> cat ~/.ssh/id_ed25519.pub
 
   2. 	Go to github.com, Login, and go to settings. Go to the 
-	SSH and GPG Keys section. Click New SSH Key or Add SSH Key
+		SSH and GPG Keys section. Click New SSH Key or Add SSH Key
 	
   3. 	Add a descriptive title and paste the entire output from the
-	cat command in step 1 in the Key section.
+		cat command in step 1 in the Key section.
 
   4. 	Pick Authentication Key or Signature Key
 		Auth-key - Used for pulling
 		Sig-Key  - Used for signing commits and pushes
-	Make both if unsure.
+		Make both if unsure.
+
+
+LOCAL VERSION IS OUTDATED:
+  1.	Make sure you are on the right branch
+		> git checkout branch-name
+
+  2.	> git fetch
+
+  3.	To see the differences between your local and remote branch
+		> git diff branch-name..origin/branch-name
+		For side by side
+		> git diff --color-words branch-name..origin/branch-name
+
+  4.	> git merge origin/branch-name
+		Resolve any conflicts and use git add, then continue
+		> git merge --continue
+
+  5.	Test It!
